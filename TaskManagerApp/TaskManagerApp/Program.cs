@@ -8,8 +8,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<TaskManagerService>();
-builder.Services.AddScoped<TaskManagerRepository>();
+builder.Services.AddScoped<ITaskManagerService, TaskManagerService>();
+builder.Services.AddScoped<ITaskManagerRepository, TaskManagerRepository>();
 
 var connection = builder.Configuration.GetSection("ConnectionStrings")["DefaultConnection"];
 builder.Services.AddDbContext<AppDbContext>(options =>

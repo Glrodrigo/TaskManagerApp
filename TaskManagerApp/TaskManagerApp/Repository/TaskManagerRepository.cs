@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskManagerApp.Domain;
-using static TaskManagerApp.Domain.TaskManagerBase;
 
 namespace TaskManagerApp.Repository
 {
-    public class TaskManagerRepository
+    public class TaskManagerRepository : ITaskManagerRepository
     {
         private readonly AppDbContext _context;
 

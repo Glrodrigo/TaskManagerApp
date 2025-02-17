@@ -8,9 +8,9 @@ namespace TaskManagerApp.Controllers
     [ApiController]
     public class TaskManagerController : ControllerBase
     {
-        private readonly TaskManagerService _taskManagerService;
+        private readonly ITaskManagerService _taskManagerService;
 
-        public TaskManagerController(TaskManagerService taskManagerService)
+        public TaskManagerController(ITaskManagerService taskManagerService)
         {
             _taskManagerService = taskManagerService;
         }

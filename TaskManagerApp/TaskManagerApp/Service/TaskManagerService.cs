@@ -4,11 +4,11 @@ using TaskManagerApp.Repository;
 
 namespace TaskManagerApp.Service
 {
-    public class TaskManagerService
+    public class TaskManagerService : ITaskManagerService
     {
-        private readonly TaskManagerRepository _taskRepository;
+        private readonly ITaskManagerRepository _taskRepository;
 
-        public TaskManagerService(TaskManagerRepository taskRepository)
+        public TaskManagerService(ITaskManagerRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }
