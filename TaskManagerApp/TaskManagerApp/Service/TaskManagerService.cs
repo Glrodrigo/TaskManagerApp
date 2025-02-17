@@ -13,14 +13,14 @@ namespace TaskManagerApp.Service
             _taskRepository = taskRepository;
         }
 
-        public async Task<TaskManagerBase> CreateAsync(TaskManagerDomain task)
+        public async Task<bool> CreateAsync(TaskManagerDomain task)
         {
             var receivedTask = new TaskManagerBase(task.Title, task.Description, task.Status, task.ConcludedDate);
 
             if (receivedTask != null)
                 receivedTask = await _taskRepository.InsertAsync(receivedTask);
 
-            return receivedTask;
+            return true;
         }
 
         public async Task<List<TaskManagerBase>> GetAsync()

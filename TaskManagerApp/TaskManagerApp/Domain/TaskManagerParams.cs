@@ -20,7 +20,7 @@ namespace TaskManagerApp.Domain
                 oldTask.Title = title;
             }
 
-            if (!string.IsNullOrEmpty(description) && description != "string")
+            if (!string.IsNullOrEmpty(description) && description.Length < 300 && description != "string")
                 oldTask.Description = description;
 
             if ((status.HasValue) && status == TaskManagerState.Pending || status == TaskManagerState.OnGoing || status == TaskManagerState.Concluded)
@@ -37,6 +37,9 @@ namespace TaskManagerApp.Domain
 
             if (status == TaskManagerState.Concluded && !concludedDate.HasValue)
                 oldTask.ConcludedDate = DateTime.UtcNow;
+
+            if (status != TaskManagerState.Concluded && concludedDate.HasValue)
+                oldTask.ConcludedDate = null;
 
             return oldTask;
         }

@@ -24,8 +24,6 @@ namespace TaskManagerApp.Repository
                 .Property(t => t.Title)
                 .IsRequired()
                 .HasMaxLength(100);
-
-
         }
     }
 }

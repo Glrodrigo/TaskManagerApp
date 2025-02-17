@@ -17,7 +17,7 @@
             if (string.IsNullOrEmpty(title) || title.Length > 100 || title == "string") 
                 throw new Exception("Titulo inválido");
 
-            if (!string.IsNullOrEmpty(description) && description == "string")
+            if (!string.IsNullOrEmpty(description) && description.Length > 300 || description == "string")
                 throw new Exception("Descrição inválida");
 
             if (status != TaskManagerState.Pending && status != TaskManagerState.OnGoing && status != TaskManagerState.Concluded)

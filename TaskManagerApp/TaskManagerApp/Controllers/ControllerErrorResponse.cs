@@ -13,7 +13,8 @@ namespace TaskManagerApp.Controllers
             };
 
             if (error.Message == "Titulo inválido" || error.Message == "Descrição inválida" || error.Message == "Status inválido" ||
-                error.Message == "Data de conclusão menor que a data de criação" || error.Message == "Identificação inválida" ||
+                error.Message == "Data de conclusão menor que a data de criação" || error.Message == "Data de conclusão preenchida não corresponde com o tipo de status" ||
+                error.Message == "Identificação inválida" ||
                 error.Message == "Pesquisa inválida, selecione um status")
             {
                 errors[0].ErrorCode = controller.StatusCode(400).StatusCode.ToString();
